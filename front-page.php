@@ -1,6 +1,6 @@
 <?php
 /**
- * The main template file
+ * template name: home
  *
  * This is the most generic template file in a WordPress theme
  * and one of the two required files for a theme (the other being style.css).
@@ -26,7 +26,7 @@ get_header(); ?>
 		); 
 
 		echo wp_list_categories($args); ?>
-	</ul>    
+</ul>    
 
 
 <!-- <style>
@@ -100,16 +100,43 @@ get_header(); ?>
 <section class="video">
 	<div class="container">
 		<div class="row">
-			<h2 class="mob">що таке публічно-правова бібліотека</h2>
+			<h2 class="mob">
+			<?php
+				if(get_field('title')) {
+					echo get_field('title');
+				}
+			?>
+			</h2>
 			<div class="col-md-7">
-				<h2 class="desct">що таке публічно-правова бібліотека</h2>
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
-				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
+				<h2 class="desct">
+					<?php
+						if(get_field('title')) {
+							echo get_field('title');
+						}
+					?>				
+				</h2>
+				<?php
+					if(get_field('text')) {
+						echo get_field('text');
+					}
+				?>
 			</div>
 			<div class="col-md-5">
-				<video class="afterglow" poster="<?php echo get_template_directory_uri() ?>/assets/img/video-screen.jpg">
-					<source src="<?php echo get_template_directory_uri() ?>/assets/video/promo.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-					<source src="<?php echo get_template_directory_uri() ?>/assets/video/promo.webm" type='video/webm; codecs="vp8, vorbis"' />
+				<video class="afterglow" poster="<?php
+					if(get_field('poster')) {
+						echo get_field('poster');
+					}
+				?>">
+					<source src="http://localhost/wp-content/themes/library/assets/<?php
+					if(get_field('video_mp4')) {
+						echo get_field('video_mp4');
+					}
+				?>" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+					<source src="http://localhost/wp-content/themes/library/assets/<?php
+					if(get_field('video_webm')) {
+						echo get_field('video_webm');
+					}
+				?>" type='video/webm; codecs="vp8, vorbis"' />
 				</video>
 			</div>
 		</div>

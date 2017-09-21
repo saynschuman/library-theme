@@ -11,6 +11,16 @@
  */
 
 get_header(); ?>
+<ul class="mobile-toggle">
+	<?php 
+	$args = array(
+		'show_option_none'   => __('No categories'),
+		'title_li'           => __( '' ),
+		'separator'          => ''
+		); 
+
+		echo wp_list_categories($args); ?>
+</ul>
 <section class="main-screen">
 	<div class="container">
 		<img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-central.png" alt="" class="logo-central">
@@ -150,11 +160,11 @@ get_header(); ?>
 						wp_reset_postdata(); 
 						?>
 					</div>
-					
+
 				</div>
 				<!-- rec mob -->
 				<div class="container rec-mob-art">
-					
+
 					<div class="category-section row rec-m-sl">
 						<?php 
 
@@ -186,8 +196,8 @@ get_header(); ?>
 							wp_reset_postdata(); 
 							?>				
 						</div>
-						
-						
+
+
 
 						<div class="rec-title">нове</div>
 						<div class="category-section row rec-m-sl">
@@ -253,9 +263,9 @@ get_header(); ?>
 									?>				
 								</div>
 							</div>
-							
-							
-							
+
+
+
 						</div>	
 					</main>
 

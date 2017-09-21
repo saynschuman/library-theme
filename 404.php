@@ -12,6 +12,8 @@
 
 get_header(); ?>
 
-404
+<div class="container">
+	Сторінка не знайдена.
+</div>	
 
 <?php get_footer();

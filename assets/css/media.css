@@ -311,8 +311,9 @@
           background-position: 0 0;
           display: block;
           position: absolute;
-          left: -59px;
-          top: 7px; }
+          left: -60px;
+          top: 50%;
+          transform: translateY(-50%); }
       .mobile-toggle li:first-child a::before {
         background-position: 0 0; }
       .mobile-toggle li:nth-child(2) a::before {
