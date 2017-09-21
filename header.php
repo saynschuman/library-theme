@@ -19,11 +19,11 @@
        <div class="container">
        <div class="row">
            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 half">
-               <a href="" class="logo"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" alt=""></a>
+               <a href="<?php bloginfo('url'); ?>" class="logo"><img src="<?php echo get_template_directory_uri() ?>/assets/img/logo.png" alt=""></a>
            </div>
            <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 half">
                <div class="search-button"><img src="<?php echo get_template_directory_uri() ?>/assets/img/search.png" alt=""></div>
-               <form id="mobile-search" action=""><input type="search" placeholder="пошук..."></form>
+               <form role="search" method="get" action="<?php echo home_url( '/' ) ?>" id="mobile-search"><input name="s" id="s" type="search" placeholder="пошук..."></form>
                    <ul>
                        <li><a id="tel" href="tel:+380967858484">+38096 785 84 84</a></li>
                        <li class="rounded"><a id="whatsapp" href=""></a></li>

@@ -1,19 +1,6 @@
 <?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://codex.wordpress.org/Template_Hierarchy
- *
- * @package WordPress
- * @subpackage Twenty_Seventeen
- * @since 1.0
- * @version 1.0
- */
+
+// Template Name: Search Page
 
 get_header(); ?>
 
@@ -97,49 +84,36 @@ get_header(); ?>
 	</div>
 </section>
 
-<main class="category-page">
+
+
+<main>
 
 	<div class="container">
-		<div class="category-section row">
-			
-			<!-- Start the Loop. -->
-			<?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
-
-				<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12">
-					<div class="category-block">
-						<a href="<?php echo get_permalink() ?>" class="title"><?php the_title() ?></a>
-						<a href="<?php echo get_permalink() ?>"><div class="thumb" style="background-image: url(<?php the_post_thumbnail_url(); ?> )"></div></a>
-						<?php the_excerpt(); ?>
-						<a href="<?php echo get_permalink() ?>" class="read">Читати повністю</a>
-						<div class="row">
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 date"><?php echo get_the_date('j F Y'); ?></div>
-							<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 share-links">
-								<ul>
-									<li class="tw"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-									<li class="fb"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								</ul>
-							</div>
-						</div>
+		<div id="content">
+			<div id="center">
+				<h1><?php echo 'Результат поиска: ' . '<span>' . get_search_query() . '</span>'; ?></h1>
+				<?php
+				if (have_posts()) :
+					while (have_posts()) : the_post();
+				?>
+				<div id="posts">
+					<h2><a href="<?php the_permalink() ?>"><?php the_title() ?></a></h2>
+					<div id="post_info">
+						<div>Автор: <?php the_author() ?></div>
+						<div>Дата добавления: <?php the_date() ?></div>
+						<div id="clear"></div>
 					</div>
-				</div>				
-				
+					<p><?php the_excerpt() ?></p>
+					<span>Категория: <?php the_category(', ') ?></span>
+				</div>
+			<?php endwhile; ?>
+			<?php
+			else :
+				echo "Извините по Вашему результату ничего не найдено";
+			endif;
+			?>
+		</div>								
+	</div>
+</main>
 
-			<?php endwhile; else: ?>
-
-			<p>Sorry, no posts matched your criteria.</p>
-
-		<?php endif; ?>
-
-	</div>	
-				<!-- <div class="row pag-block">
-					<ul class="pagination">
-						<li><a href="">1</a></li>
-						<li class="active"><a href="">2</a></li>
-						<li><a href="">3</a></li>
-						<li><a href=""><i class="fa fa-angle-right" aria-hidden="true"></i><i class="fa fa-angle-right" aria-hidden="true"></i></a></li>
-					</ul>
-				</div> -->				
-			</div>	
-		</main>
-
-		<?php get_footer();
+<?php get_footer();
