@@ -1,88 +1,56 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.min.css">
-    <link rel="stylesheet" href="css/main.css">
-    <link rel="stylesheet" href="css/media.css">
-    <title>Project</title>
-</head>
+get_header(); ?>
 
-<body>
-    <!-- header -->
-    <header class="header">
-       <div class="container">
-       <div class="row">
-           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 half">
-               <a href="" class="logo"><img src="img/logo.png" alt=""></a>
-           </div>
-           <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 half">
-               <div class="search-button"><img src="img/search.png" alt=""></div>
-               <form id="mobile-search" action=""><input type="search" placeholder="пошук..."></form>
-                   <ul>
-                       <li><a id="tel" href="tel:+380967858484">+38096 785 84 84</a></li>
-                       <li class="rounded"><a id="whatsapp" href=""></a></li>
-                       <li class="rounded"><a id="viber" href=""></a></li>
-                       <li class="rounded"><a id="telegram" href=""></a></li>
-                       <li><a id="instagram" href=""></a></li>
-                       <li><a id="facebook" href=""></a></li>
-                   </ul>
-                <button class="mob-button"><span></span></button>
-           </div>
-        </div>
-       </div>
-    </header>
     <ul class="mobile-toggle">
-        <li><a href="">Ситуації з поліцією</a></li>
-        <li><a href="">сімейне право</a></li>
-        <li><a href="">ТРУДОВЕ ПРАВО</a></li>
-        <li><a href="">ПРАВА КОРИСТУВАЧІВ</a></li>
-        <li><a href="">ОФОРМЛЕННЯ ДОКУМЕНТІВ</a></li>
-        <li><a href="">ЖГК</a></li>
+	<?php 
+		$args = array(
+		'show_option_none'   => __('No categories'),
+		'title_li'           => __( '' ),
+		'separator'          => ''
+	); 
+
+	echo wp_list_categories($args); ?>
     </ul>    
 
 
 <section class="main-screen">
     <div class="container">
-        <img src="img/logo-central.png" alt="" class="logo-central">
+        <img src="<?php echo get_template_directory_uri() ?>/assets/img/logo-central.png" alt="" class="logo-central">
         <h1>Публічно-правова бібліотека</h1>
         <div class="row item-cont">
             <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 item">
-                 <div class="block">
+                 <div class="block" onclick="location.href='?cat=2'">
                      <div class="img" id="police"></div>
                      <div class="title">Ситуації <br> з поліцією</div>
                  </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 item">
-                 <div class="block">
+                 <div class="block" onclick="location.href='?cat=3'">
                      <div class="img" id="family"></div>
                      <div class="title">сімейне право</div>
                  </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 item">
-                 <div class="block">
+                 <div class="block" onclick="location.href='?cat=4'">
                      <div class="img" id="work"></div>
                      <div class="title">ТРУДОВЕ ПРАВО</div>
                  </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 item">
-                 <div class="block">
+                 <div class="block" onclick="location.href='?cat=5'">
                      <div class="img" id="users"></div>
                      <div class="title">ПРАВА КОРИСТУВАЧІВ</div>
                  </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 item">
-                 <div class="block">
+                 <div class="block" onclick="location.href='?cat=6'">
                      <div class="img" id="docs"></div>
                      <div class="title">ОФОРМЛЕННЯ ДОКУМЕТІВ</div>
                  </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 item">
-                 <div class="block">
+                 <div class="block" onclick="location.href='?cat=7'">
                      <div class="img" id="zhgk"></div>
                      <div class="title">ЖГК</div>
                  </div>
@@ -102,9 +70,9 @@
 				<p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt.</p>
 			</div>
 			<div class="col-md-5">
-				<video class="afterglow" poster="img/video-screen.jpg">
-			      <source src="video/promo.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-			      <source src="video/promo.webm" type='video/webm; codecs="vp8, vorbis"' />
+				<video class="afterglow" poster="<?php echo get_template_directory_uri() ?>/assets/img/video-screen.jpg">
+			      <source src="<?php echo get_template_directory_uri() ?>/assets/video/promo.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
+			      <source src="<?php echo get_template_directory_uri() ?>/assets/video/promo.webm" type='video/webm; codecs="vp8, vorbis"' />
 		    	</video>
 			</div>
 		</div>
@@ -118,7 +86,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
 				<div class="category-block">
 					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(img/thumb.png)"></div></a>
+					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
 					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
 					<a href="" class="read">Читати повністю</a>
 					<div class="row">
@@ -135,7 +103,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
 				<div class="category-block">
 					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(img/thumb.png)"></div></a>
+					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
 					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
 					<a href="" class="read">Читати повністю</a>
 					<div class="row">
@@ -152,7 +120,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
 				<div class="category-block">
 					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(img/thumb.png)"></div></a>
+					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
 					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
 					<a href="" class="read">Читати повністю</a>
 					<div class="row">
@@ -175,7 +143,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
 				<div class="category-block">
 					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(img/thumb.png)"></div></a>
+					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
 					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
 					<a href="" class="read">Читати повністю</a>
 					<div class="row">
@@ -192,7 +160,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
 				<div class="category-block">
 					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(img/thumb.png)"></div></a>
+					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
 					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
 					<a href="" class="read">Читати повністю</a>
 					<div class="row">
@@ -209,7 +177,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
 				<div class="category-block">
 					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(img/thumb.png)"></div></a>
+					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
 					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
 					<a href="" class="read">Читати повністю</a>
 					<div class="row">
@@ -232,7 +200,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
 				<div class="category-block">
 					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(img/thumb.png)"></div></a>
+					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
 					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
 					<a href="" class="read">Читати повністю</a>
 					<div class="row">
@@ -249,7 +217,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
 				<div class="category-block">
 					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(img/thumb.png)"></div></a>
+					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
 					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
 					<a href="" class="read">Читати повністю</a>
 					<div class="row">
@@ -266,7 +234,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
 				<div class="category-block">
 					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(img/thumb.png)"></div></a>
+					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
 					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
 					<a href="" class="read">Читати повністю</a>
 					<div class="row">
@@ -289,7 +257,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
 				<div class="category-block">
 					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(img/thumb.png)"></div></a>
+					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
 					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
 					<a href="" class="read">Читати повністю</a>
 					<div class="row">
@@ -306,7 +274,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
 				<div class="category-block">
 					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(img/thumb.png)"></div></a>
+					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
 					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
 					<a href="" class="read">Читати повністю</a>
 					<div class="row">
@@ -323,7 +291,7 @@
 			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
 				<div class="category-block">
 					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(img/thumb.png)"></div></a>
+					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
 					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
 					<a href="" class="read">Читати повністю</a>
 					<div class="row">
@@ -342,73 +310,4 @@
 	</div>
 </main>
 
-
-<!-- footer -->
-
-<footer class="footer">
-  <div class="container">
-  	<div class="row">
-       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 half">
-           <a href="" class="logo"><img src="img/footer-logo.png" alt=""></a>
-       </div>
-       <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 half">
-           <ul>
-               <li><a id="tel" href="tel:+380967858484">+38096 785 84 84</a></li>
-               <li><a id="instagram" href=""></a></li>
-               <li><a id="facebook" href=""></a></li>
-           </ul>
-       </div>
-  	</div>
-  </div>
-</footer>
-
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<script src="libs/bootstrap/bootstrap.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.7.1/slick.js"></script>
-<script src="libs/js/afterglow.min.js"></script>
-<script src="js/main.js"></script>
-
-</body>
-
-</html>
-
-<script>
-
-(function($) {
-
-	$(".category-section").slick({
-
-  // normal options...
-  infinite: false,
-
-  // the magic
-  responsive: [{
-
-  	breakpoint: 768,
-  	settings: {
-  		slidesToShow: 1,
-  		dots: false,
-  		arrows: true,
-  		prevArrow: '<div class="arr-nav arr-left"><i class="fa fa-angle-left" aria-hidden="true"></i></div>',
-  		nextArrow: '<div class="arr-nav arr-right"><i class="fa fa-angle-right" aria-hidden="true"></i></div>'
-  	}
-
-  }, {
-
-  	breakpoint: 1320,
-  	settings: {
-  		slidesToShow: 2,
-  		dots: false,
-  		arrows: false
-  	}
-
-  }, {
-
-  	breakpoint: 1900,
-      settings: "unslick" // destroys slick
-
-  }]
-});  
-
-})(jQuery);	
-</script>
+<?php get_footer();

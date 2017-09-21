@@ -18,13 +18,65 @@
 get_header(); ?>
 
     <ul class="mobile-toggle">
-        <li><a href="">Ситуації з поліцією</a></li>
-        <li><a href="">сімейне право</a></li>
-        <li><a href="">ТРУДОВЕ ПРАВО</a></li>
-        <li><a href="">ПРАВА КОРИСТУВАЧІВ</a></li>
-        <li><a href="">ОФОРМЛЕННЯ ДОКУМЕНТІВ</a></li>
-        <li><a href="">ЖГК</a></li>
+	<?php 
+		$args = array(
+		'show_option_none'   => __('No categories'),
+		'title_li'           => __( '' ),
+		'separator'          => ''
+	); 
+
+	echo wp_list_categories($args); ?>
     </ul>    
+
+
+<!-- <style>
+	#test-popup {
+		position: fixed;
+		left: 0;
+		right: 0;
+		margin: auto;
+		top: 40px;
+		background: #fff;
+		z-index: 9999;
+		width: 500px;
+		height: auto;
+	}
+</style>
+
+<div id="test-popup">
+
+
+<?php
+// Цикл 1
+$query1 = new WP_Query('cat=7'); // все посты, кроме категории 1
+while( $query1->have_posts() ){ $query1->the_post();
+
+	the_title();
+
+}
+wp_reset_postdata();
+
+// Цикл 2
+$query2 = new WP_Query('cat=6'); // все посты, кроме категории 2
+while( $query2->have_posts() ){ $query2->the_post();
+
+	the_title();
+
+}
+wp_reset_postdata();
+
+// Цикл 3
+$query3 = new WP_Query('cat=5'); // все посты, кроме категории 3
+while( $query3->have_posts() ){ $query3->the_post();
+
+	the_title();
+
+}
+wp_reset_postdata();
+?>
+
+
+</div>  -->
 
 
 <section class="main-screen">
@@ -33,37 +85,37 @@ get_header(); ?>
         <h1>Публічно-правова бібліотека</h1>
         <div class="row item-cont">
             <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 item">
-                 <div class="block">
+                 <div class="block" onclick="location.href='?cat=2'">
                      <div class="img" id="police"></div>
                      <div class="title">Ситуації <br> з поліцією</div>
                  </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 item">
-                 <div class="block">
+                 <div class="block" onclick="location.href='?cat=3'">
                      <div class="img" id="family"></div>
                      <div class="title">сімейне право</div>
                  </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 item">
-                 <div class="block">
+                 <div class="block" onclick="location.href='?cat=4'">
                      <div class="img" id="work"></div>
                      <div class="title">ТРУДОВЕ ПРАВО</div>
                  </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 item">
-                 <div class="block">
+                 <div class="block" onclick="location.href='?cat=5'">
                      <div class="img" id="users"></div>
                      <div class="title">ПРАВА КОРИСТУВАЧІВ</div>
                  </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 item">
-                 <div class="block">
+                 <div class="block" onclick="location.href='?cat=6'">
                      <div class="img" id="docs"></div>
                      <div class="title">ОФОРМЛЕННЯ ДОКУМЕТІВ</div>
                  </div>
             </div>
             <div class="col-lg-2 col-md-4 col-sm-4 col-xs-12 item">
-                 <div class="block">
+                 <div class="block" onclick="location.href='?cat=7'">
                      <div class="img" id="zhgk"></div>
                      <div class="title">ЖГК</div>
                  </div>
@@ -96,14 +148,21 @@ get_header(); ?>
 	<div class="container">
 	<a href="" class="category-link">cитуації з поліцією</a>
 		<div class="category-section row">
+	
+		<?php 
+
+		 // Цикл 1
+		$query1 = new WP_Query('cat=7');
+		while( $query1->have_posts() ){ $query1->the_post(); ?>
+
 			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
 				<div class="category-block">
-					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
-					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
-					<a href="" class="read">Читати повністю</a>
+					<a href="<?php echo get_permalink() ?>" class="title"><?php the_title(); ?></a>
+					<a href="<?php echo get_permalink() ?>"><div class="thumb" style="background-image: url(<?php the_post_thumbnail_url(); ?> )"></div></a>
+					<?php the_excerpt(); ?>
+					<a href="<?php echo get_permalink() ?>" class="read">Читати повністю</a>
 					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 date">Август 2, 2017</div>
+						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 date"><?php echo get_the_date('j F Y'); ?></div>
 						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 share-links">
 							<ul>
 								<li class="tw"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
@@ -113,40 +172,12 @@ get_header(); ?>
 					</div>
 				</div>
 			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
-				<div class="category-block">
-					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
-					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
-					<a href="" class="read">Читати повністю</a>
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 date">Август 2, 2017</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 share-links">
-							<ul>
-								<li class="tw"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li class="fb"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 art-block">
-				<div class="category-block">
-					<a href="" class="title">порушення правил зупинки</a>
-					<a href=""><div class="thumb" style="background-image: url(<?php echo get_template_directory_uri() ?>/assets/img/thumb.png)"></div></a>
-					<p>Питання, пов'язані із зупинкою та стоянкою, часто є причиною непорозуміння між водієм і співробітниками ДАІ. У містах порушення правил зупинки та стоянки є, мабуть, одним з найбільш поширених порушень ПДР - справжніх чи уявних.</p>
-					<a href="" class="read">Читати повністю</a>
-					<div class="row">
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 date">Август 2, 2017</div>
-						<div class="col-lg-6 col-md-6 col-sm-6 col-xs-6 share-links">
-							<ul>
-								<li class="tw"><a href=""><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li class="fb"><a href=""><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
+
+			<?php }
+			wp_reset_postdata();
+
+		 ?>		
+
 			</div><div class="row"><div class="col-md-12"><a href="" class="more-articles">більше статтей</a></div></div>
 		
 		<hr class="section">
